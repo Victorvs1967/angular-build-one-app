@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { ConfigService } from './services/config.service';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,13 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.sass'
 })
 export class AppComponent {
-  title = 'angular-build-one-app';
+  title = 'Victor';
+
+  configService = inject(ConfigService);
+
+  apiUrl = this.configService.readConfig().API_URL;
+
+  constructor() {
+    console.log(this.configService.readConfig().API_URL);
+  }
 }
