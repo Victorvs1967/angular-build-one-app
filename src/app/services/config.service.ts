@@ -21,10 +21,13 @@ export class ConfigService {
     this.http = new HttpClient(this.httpHandler);
   }
 
-  setConfig(): Promise<void | AppConfig> {
-    return firstValueFrom(this.http.get<AppConfig>('./app-config.json'))
-      .then((config: AppConfig) => this.configuration = config)
-      .catch(error => console.log(error));
+  async setConfig(): Promise<void | AppConfig> {
+    try {
+      const config = await firstValueFrom(this.http.get<AppConfig>('./app-config.json'));
+      return this.configuration = config;
+    } catch (error) {
+      return console.log(error);
+    }
   }
 
   readConfig(): AppConfig {
