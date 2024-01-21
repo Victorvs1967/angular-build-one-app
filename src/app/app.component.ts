@@ -6,7 +6,7 @@ import { ConfigService } from './services/config.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [ CommonModule, RouterOutlet ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass'
 })

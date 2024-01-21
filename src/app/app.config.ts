@@ -1,8 +1,8 @@
 import { APP_INITIALIZER, ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
 import { ConfigService } from './services/config.service';
 
 export function initConfig(appConfig: ConfigService) {
